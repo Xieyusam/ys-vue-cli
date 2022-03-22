@@ -1,0 +1,9 @@
+@import './reset.scss'; //清除默认样式
+
+body {
+	width: 100vw;
+	height: 100vh;
+	// 引入背景图片
+	background:#eeeeee;
+	background-size: 100% 100%;
+}
