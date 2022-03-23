@@ -1,10 +1,19 @@
 <template>
   <div class="child">child
+    <input v-model="inputValue1" />
+		<input v-model="inputValue2" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data(){
+		return {
+			inputValue1:'',
+			inputValue2:'',
+		}
+	}
+}
 </script>
 
 <style lang="scss" scoped>

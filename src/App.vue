@@ -1,8 +1,14 @@
 <template>
 	<div class="box">
-		App221321
+		App
 		<img src="../src/assets/images/logo.png" alt="" />
+		<input v-model="inputValue1" />
+		<input v-model="inputValue2" />
+		<input v-model="inputValue3" />
+		<input v-model="inputValue4" />
+		<input v-model="inputValue5" />
 		<asyncComp></asyncComp>
+
 	</div>
 </template>
 
@@ -12,6 +18,15 @@
 export default {
 	components: {
 		asyncComp: () => import('./components/asyncComp.vue')
+	},
+	data(){
+		return {
+			inputValue1:'',
+			inputValue2:'',
+			inputValue3:'',
+			inputValue4:'',
+			inputValue5:'',
+		}
 	}
 };
 </script>

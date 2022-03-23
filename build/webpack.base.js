@@ -2,17 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-// npm install --save-dev preload-webpack-plugin@next
-// const PreloadWebpackPlugin = require('preload-webpack-plugin');
+
 // 进度条
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
 
 module.exports = {
-	// 入口文件 main.js
-	entry: {
-		main: './src/main.js'
-	},
+	
 	resolve: {
 		// 路径别名
 		alias: {
@@ -23,10 +19,13 @@ module.exports = {
 		// modules: [path.resolve(__dirname, "../node_modules")]
 	},
 	optimization: {
+		// 开启代码分割
 		splitChunks: {
 			chunks: 'all' // 所有的 chunks 代码公共的部分分离出来成为⼀个单独的⽂件
 		},
-		concatenateModules: true
+		concatenateModules: true,
+		// usedExports: true, //只导出被使用的模块
+		// minimize: true // 启动压缩
 	},
 	// 输出
 	output: {
@@ -95,10 +94,7 @@ module.exports = {
 			filename: 'styles/[name]-[contenthash].css',
 			ignoreOrder: true
 		}),
-		// new PreloadWebpackPlugin({
-		// 	rel: 'prefetch',
-		// 	include: 'asyncChunks'
-		//   }),
+		
 		new HtmlWebpackPlugin({
 			// 选择模板 public/index.html
 			template: './public/index.html',
